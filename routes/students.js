@@ -25,7 +25,7 @@ var format = function (input) {
 
 async function getStudentName(id) {
 	let output = "";
-	await fetch(`http://localhost:3000/students/${id}`)
+	await fetch(`https://${process.env.YOUR_URL}:3000/students/${id}`)
 		.then((res) => res.json())
 		.then((data) => (output = data.name));
 
@@ -34,7 +34,7 @@ async function getStudentName(id) {
 
 async function getTeacherName(id) {
 	let output = "";
-	await fetch(`http://localhost:3000/students/${id}`)
+	await fetch(`https://${process.env.YOUR_URL}:3000/students/${id}`)
 		.then((res) => res.json())
 		.then((data) => (output = data.teacher));
 
@@ -81,14 +81,6 @@ async function prepareEmail(data, id) {
 
 	//* Send the email
 	sendEmail(email, date, tempData, studentName, teacherName);
-
-	// tempKey = Object.keys(tempData);
-	// console.log("=======");
-	// console.log(tempData);
-	// console.log("=======");
-	// console.log(email);
-	// console.log("=======");
-	// console.log(date);
 }
 
 function sendEmail(sendToEmail, date, data, studentName, teacherName) {
@@ -280,7 +272,7 @@ function sendEmail(sendToEmail, date, data, studentName, teacherName) {
 	`;
 	transporter.sendMail(
 		{
-			from: "overlakehomenotes@gmail.com",
+			from: process.env.EMAIL_USER,
 			to: sendToEmail,
 			subject: `${date} Report`,
 			html: body,
@@ -293,14 +285,7 @@ function sendEmail(sendToEmail, date, data, studentName, teacherName) {
 			}
 		}
 	);
-	// console.log({
-	// 	sendToEmail,
-	// 	date,
-	// 	data,
-	// });
 }
-
-// sendEmail("cartercarling37@gmail.com");
 
 //* Getting all students
 router.get("/", async (req, res) => {
@@ -349,7 +334,7 @@ router.patch("/:id", getStudent, async (req, res) => {
 	if (req.body.scores != null) {
 		// console.log(req.body.scores.pop());
 		res.student.scores = req.body.scores;
-		// prepareEmail(req.body.scores.pop(), req.params.id);
+		prepareEmail(req.body.scores.pop(), req.params.id);
 	}
 	try {
 		const updatedStudent = await res.student.save();
