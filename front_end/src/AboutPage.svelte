@@ -1,5 +1,5 @@
 <h1 class="text-center mt-4">About</h1>
-<p class="text-center">Note: If you are trying to configure this then read the instructions on the <a href="https://github.com">GitHub</a></p>
+<p class="text-center">Note: If you are trying to configure this then read the instructions on the <a href="https://github.com/Carter121/student-reports" target="_blank">GitHub</a></p>
 <hr>
 
 <h2 class="text-center mt-5 h3">How To Use</h2>
@@ -129,11 +129,16 @@
     </div>
 </div>
 
-<h2 class="text-center mt-5 h3">Who made this?</h2>
+<h2 class="text-center mt-5 h3">Report Bugs</h2>
 <hr class="w-25 m-auto">
 
-<div class="container">
-    TODO
+<div class="container about-container mb-5">
+    <div class="card mt-5">
+        <h3 class="h4 text-center card-title mt-3">Report Bugs on the GitHub</h3>
+        <div class="card-body text-center">
+            Go <a href="https://github.com/Carter121/student-reports/issues" target="_blank">here</a> to report bugs
+        </div> 
+    </div>
 </div>
 
 <style>
