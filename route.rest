@@ -1,0 +1,64 @@
+GET http://localhost:3000/students
+
+###
+
+GET http://localhost:3000/students/621813467b8cfa82889de451
+
+###
+
+POST http://localhost:3000/students/
+Content-Type: application/json
+
+{
+    "name": "Tesssst",
+    "parentEmail": "ddsda",
+    "teacher": "teacherlol",
+    "goals": [
+        {
+            "type": "wasdsd",
+            "name": "sdasd"
+        }
+    ]
+}
+
+###
+
+DELETE http://localhost:3000/students/62129e196317931bbd052d45
+
+###
+
+PATCH http://localhost:3000/students/621550d599bcf7640efc0764
+
+{
+  "_id": "621813467b8cfa82889de451",
+  "name": "Test Student",
+  "parentEmail": "test@example.com",
+  "teacher": "Mr Teacher",
+  "scores": [
+    {
+      "Raise Hand": "0",
+      "Ask For Help": "2",
+      "email": "test@example.com",
+      "date": "2022-02-24"
+    },
+    {
+      "Raise Hand": "2",
+      "Ask For Help": "4",
+      "email": "test@example.com",
+      "date": "2022-02-24"
+    }
+  ],
+  "goals": [
+    {
+      "type": "Multi Choice",
+      "name": "Raise Hand",
+      "_id": "6218140f7b8cfa82889de45f"
+    },
+    {
+      "type": "Multi Choice",
+      "name": "Ask For Help",
+      "_id": "621814187b8cfa82889de470"
+    }
+  ],
+  "__v": 4
+}
